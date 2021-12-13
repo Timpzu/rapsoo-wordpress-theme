@@ -74,6 +74,7 @@ a:hover {
     color: #fff;
 }
 
+a.custom-logo-link,
 a.anchor-button {
     background: none;
     border: 5px solid transparent;
@@ -122,49 +123,16 @@ a.anchor-button.card:focus div.overlay {
     display: flex;
 }
 
-a.anchor-button.card.graphic-design span.chip,
-main .grid aside ul.tag-list li.graphic-design,
-span.chip.graphic-design {
-    background: #5CB462;
-    color: #000000;
-}
-
-a.anchor-button.card.comms span.chip,
-main .grid aside ul.tag-list li.comms,
-span.chip.comms {
-    background: #E7646F;
-    color: #000000;
-}
-
-a.anchor-button.card.service-design span.chip,
-main .grid aside ul.tag-list li.service-design,
-span.chip.service-design {
-    background: #be4b95;
-    color: #000000;
-}
-
-a.anchor-button.card.ui-design span.chip,
-main .grid aside ul.tag-list li.ui-design,
-span.chip.ui-design {
-    background: #FEEE52;
-    color: #000000;
-}
-
-a.anchor-button.card.web-dev span.chip,
-main .grid aside ul.tag-list li.web-dev,
-span.chip.web-dev {
-    background: #f0a66b;
-    color: #000000;
-}
-
-a.anchor-button.logo {
+a.custom-logo-link {
     display: block;
+    line-height: 0;
     margin: 16px 0;
     text-align: center;
 }
 
-a.anchor-button.logo img.dark {
-    display: none;
+a.custom-logo-link img.custom-logo {
+    height: auto;
+    width: 232px;
 }
 
 a.anchor-button.skip {
@@ -177,6 +145,8 @@ a.anchor-button.skip:focus {
     top: 0px;
 }
 
+a.custom-logo-link:hover,
+a.custom-logo-link:focus,
 a.anchor-button:hover,
 a.anchor-button:focus {
     border: 5px solid rgba(0, 0, 0, 0.92);
@@ -214,6 +184,7 @@ select {
 
 button,
 select,
+a.custom-logo-link,
 a.anchor-button {
     color: rgba(0, 0, 0, 0.92);
     font-weight: bold;
@@ -503,18 +474,21 @@ body.dark a {
     color: #B5B5E5;
 }
 
-body.dark a:hover:not(a.anchor-button) {
+body.dark a:hover:not(a.anchor-button):not(a.custom-logo-link) {
     background: #B5B5E5;
     color: rgba(0, 0, 0, 0.92);
 }
 
 body.dark a.anchor-button,
+body.dark a.custom-logo-link,
 body.dark button,
 body.dark select {
     border: 5px solid transparent;
     color: #ffffff;
 }
 
+body.dark a.custom-logo-link:hover,
+body.dark a.custom-logo-link:focus,
 body.dark a.anchor-button:hover,
 body.dark a.anchor-button:focus {
     border: 5px solid #ffffff;
@@ -593,7 +567,7 @@ body.dark span.chip.graphic-design {
         margin: 16px 0;
     }
 
-    a.anchor-button.logo {
+    a.custom-logo-link {
         text-align: left;
     }
 
@@ -665,7 +639,7 @@ body.dark span.chip.graphic-design {
 }
 
 @media only screen and (min-width: 720px) {
-    a.anchor-button.logo {
+    a.custom-logo-link {
         margin: 24px 0;
     }
 

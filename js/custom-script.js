@@ -1,9 +1,6 @@
-
 $(document).ready(function () {
     $("#invert_colors").click(function () {
         $('body').toggleClass("dark");
-        $('a.logo img.light').toggle();
-        $('a.logo img.dark').toggle();
     });
     $("#format_size").click(function () {
         $('body').toggleClass("large");

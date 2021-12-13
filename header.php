@@ -16,12 +16,13 @@
     <div class="grid">
         <header>
             <div class="flex-container top-bar">
-                <a class="logo anchor-button" href="<?php echo home_url(); ?>">
-                    <img class="dark" src="img/logoipsum-logo-14.svg" alt="Link to home page."
-                        height="232" width="232">
-                    <img class="light" src="img/logoipsum-logo-14.svg" alt="Link to home page."
-                        height="232" width="232">
-                </a>
+                <?php 
+                if ( get_custom_logo() ) {
+                    the_custom_logo();
+                } else {
+                    $site_title = get_bloginfo( 'name' );
+                    echo $site_title; 
+                } ?>
                 <div class="settings">
                     <button aria-label="Format size" id="format_size">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px"
@@ -44,5 +45,5 @@
                     </button>
                 </div>
             </div>
-            <h1>Quisque sit amet auctor leo, quis dapibus libero.</h1>
+            <h1><?php echo get_theme_mod('rapsoo_headline'); ?></h1>
         </header>
