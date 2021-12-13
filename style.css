@@ -1,26 +1,8 @@
-@font-face {
-    font-family: atkinson;
-    src: url(../webfonts/Atkinson-Hyperlegible-Regular-102a.woff2);
-}
-
-@font-face {
-    font-family: atkinson;
-    src: url(../webfonts/Atkinson-Hyperlegible-Italic-102a.woff2);
-    font-style: italic;
-}
-
-@font-face {
-    font-family: atkinson;
-    src: url(../webfonts/Atkinson-Hyperlegible-Bold-102a.woff2);
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: atkinson;
-    src: url(../webfonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2);
-    font-style: italic;
-    font-weight: bold;
-}
+/*
+Theme Name: Räpsöö
+Author: Timo Lehtonen
+Version: 1.0
+*/
 
 .about-copy .body-text p:first-child,
 .about-copy .body-text h3:first-child,
@@ -425,6 +407,11 @@ main img.feature {
 }
 
 main img#portrait {
+    width: 100%;
+}
+
+main img.wp-post-image {
+    height: auto;
     width: 100%;
 }
 
