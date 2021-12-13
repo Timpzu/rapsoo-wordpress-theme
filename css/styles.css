@@ -1,0 +1,772 @@
+@font-face {
+    font-family: atkinson;
+    src: url(../webfonts/Atkinson-Hyperlegible-Regular-102a.woff2);
+}
+
+@font-face {
+    font-family: atkinson;
+    src: url(../webfonts/Atkinson-Hyperlegible-Italic-102a.woff2);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: atkinson;
+    src: url(../webfonts/Atkinson-Hyperlegible-Bold-102a.woff2);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: atkinson;
+    src: url(../webfonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2);
+    font-style: italic;
+    font-weight: bold;
+}
+
+.about-copy .body-text p:first-child,
+.about-copy .body-text h3:first-child,
+.grid.about-copy aside h3:first-child,
+.grid.about-copy aside p:first-child {
+    margin-top: 0;
+}
+
+.body-text,
+h2,
+.grid aside {
+    grid-column: 1 / 5;
+}
+
+.grid {
+    display: grid;
+    grid-column-gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+    max-width: 960px;
+    padding: 0 16px 0;
+}
+
+.grid.cards {
+    grid-row-gap: 16px;
+    margin: 16px 0;
+    padding: 0;
+}
+
+.grid.cards a.anchor-button.hidden {
+    display: none;
+}
+
+.grid.cards span.chip {
+    position: absolute;
+    right: 0;
+}
+
+.grid.portfolio-copy .body-text h2,
+.grid.portfolio-copy aside h2 {
+    margin-top: calc(1em - 16px);
+}
+
+.grid.portfolio-copy aside .software-icon {
+    margin-right: 4px;
+    width: 52px;
+}
+
+.sr-only {
+    height: 1px;
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    top: auto;
+    width: 1px;
+}
+
+a {
+    border: 2px solid transparent;
+    border-bottom: 2px solid #4B4B9A;
+    color: #4B4B9A;
+    padding: 2px;
+    text-decoration: none;
+}
+
+a:hover {
+    background: #4B4B9A;
+    border: 2px solid #000000;
+    color: #fff;
+}
+
+a.anchor-button {
+    background: none;
+    border: 5px solid transparent;
+    color: rgba(0, 0, 0, 0.92);
+    display: inline-block;
+    line-height: 1.5em;
+    padding: 10px;
+    text-decoration: none;
+}
+
+a.anchor-button.card {
+    grid-column: span 4;
+    line-height: 0;
+    padding: 0;
+    position: relative;
+}
+
+a.anchor-button.card div.overlay {
+    align-items: center;
+    background-color: transparent;
+    bottom: 0;
+    box-sizing: border-box;
+    content: "";
+    display: none;
+    justify-content: center;
+    left: 0;
+    padding: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+a.anchor-button.card div.overlay span {
+    font-size: 1.25em;
+    line-height: 1.25em;
+}
+
+a.anchor-button.card img {
+    margin: 0;
+}
+
+a.anchor-button.card:hover div.overlay,
+a.anchor-button.card:focus div.overlay {
+    background-color: #4B4B9A;
+    color: #ffffff;
+    display: flex;
+}
+
+a.anchor-button.card.graphic-design span.chip,
+main .grid aside ul.tag-list li.graphic-design,
+span.chip.graphic-design {
+    background: #5CB462;
+    color: #000000;
+}
+
+a.anchor-button.card.comms span.chip,
+main .grid aside ul.tag-list li.comms,
+span.chip.comms {
+    background: #E7646F;
+    color: #000000;
+}
+
+a.anchor-button.card.service-design span.chip,
+main .grid aside ul.tag-list li.service-design,
+span.chip.service-design {
+    background: #be4b95;
+    color: #000000;
+}
+
+a.anchor-button.card.ui-design span.chip,
+main .grid aside ul.tag-list li.ui-design,
+span.chip.ui-design {
+    background: #FEEE52;
+    color: #000000;
+}
+
+a.anchor-button.card.web-dev span.chip,
+main .grid aside ul.tag-list li.web-dev,
+span.chip.web-dev {
+    background: #f0a66b;
+    color: #000000;
+}
+
+a.anchor-button.logo {
+    display: block;
+    margin: 16px 0;
+    text-align: center;
+}
+
+a.anchor-button.logo img.dark {
+    display: none;
+}
+
+a.anchor-button.skip {
+    margin: 8px;
+    position: absolute;
+    top: -64px;
+}
+
+a.anchor-button.skip:focus {
+    top: 0px;
+}
+
+a.anchor-button:hover,
+a.anchor-button:focus {
+    border: 5px solid rgba(0, 0, 0, 0.92);
+}
+
+body {
+    background-color: #ffffff;
+    font-family: atkinson, sans-serif;
+    font-size: 1.25em;
+    margin: 0;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+}
+
+body.large {
+    font-size: 1.5em;
+    hyphens: auto;
+}
+
+button,
+select {
+    background-color: #ffffff;
+    border: rgba(0, 0, 0, 0.92) 5px solid;
+    min-height: 45px;
+    min-width: 45px;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+}
+
+button,
+select,
+a.anchor-button {
+    color: rgba(0, 0, 0, 0.92);
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+button:hover,
+select:hover,
+button:focus,
+select:focus {
+    background-color: rgba(0, 0, 0, 0.92);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+div.filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+div.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+div.settings {
+    margin: 0 0 16px;
+    text-align: right;
+}
+
+div.settings button {
+    line-height: 0;
+}
+
+div.settings button+button {
+    margin-left: 16px;
+}
+
+div.settings button:focus svg,
+div.settings button:hover svg {
+    fill: #ffffff;
+}
+
+div.top-bar {
+    font-size: 16px;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    width: 100%;
+}
+
+footer {
+    grid-column: 1 / span 4;
+    padding: 0 0 20px;
+}
+
+footer a.anchor-button {
+    margin: 0.5em 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.25em;
+    margin: 0.8em 0 0.25em;
+}
+
+h1 {
+    font-size: 4.25em;
+    hyphens: auto;
+    margin-bottom: 0.335em;
+}
+h1#jumbo_heading {
+    hyphens: manual;
+}
+
+h2 {
+    font-size: 3.5em;
+}
+
+h2,
+main .grid.portfolio-copy h1 {
+    grid-column: span 4;
+}
+
+h3 {
+    font-size: 2.5em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+header {
+    grid-column: 1 / span 4;
+}
+
+html {
+    font-size: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+main {
+    grid-column: 1 / span 4;
+}
+
+main .grid {
+    grid-row-gap: 16px;
+}
+
+main .grid aside ol li ul {
+    margin-bottom: 8px;
+}
+
+main .grid aside ol li:last-of-type ul {
+    margin-bottom: 0;
+}
+
+main .grid aside ol.no-padding-list,
+main .grid aside ol.no-padding-list li>ul,
+main .grid aside ul.no-padding-list,
+main .grid aside ul.tag-list {
+    overflow: auto;
+    padding-left: 0;
+}
+
+main .grid aside ol.no-padding-list li,
+main .grid aside ul.no-padding-list li,
+main .grid aside ul.tag-list {
+    list-style: none;
+}
+
+main .grid aside ol.no-padding-list li ul li strong,
+main .grid aside ul.no-padding-list li strong {
+    font-size: 1.115em;
+}
+
+main .grid aside ul.tag-list li {
+    background: rgba(0, 0, 0, 0.92);
+    color: #ffffff;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+main .grid aside ul.tag-list li~li,
+main .grid aside ul.tag-list li:first-child {
+    margin-right: 8px;
+}
+
+main .grid aside ul.tag-list li:last-child {
+    margin-right: 0;
+}
+
+main .grid.about-copy,
+main .grid.portfolio-copy {
+    padding: 0;
+}
+
+main .grid.about-copy aside {
+    /* background: #FEEE52; */
+    padding: 8px;
+}
+
+main .grid.portfolio-copy h1 {
+    line-height: 1.25em;
+    margin: 0.355em 0;
+}
+
+main img {
+    width: 100%;
+}
+
+main img.feature {
+    grid-column: span 4;
+}
+
+main img#portrait {
+    width: 100%;
+}
+
+main ol,
+main ul {
+    line-height: 1.67em;
+}
+
+nav.breadcrumb {
+    grid-column: span 4;
+    margin: 2em 0 calc(2em - 16px);
+}
+
+nav.breadcrumb [aria-current="page"] {
+    color: #606060;
+}
+
+nav.breadcrumb li {
+    display: inline;
+}
+
+nav.breadcrumb li a.anchor-button {
+    border: none;
+    border-bottom: 5px solid transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 4px 0;
+}
+
+nav.breadcrumb li a.anchor-button:hover,
+nav.breadcrumb li a.anchor-button:focus {
+    border-bottom: 5px solid #4B4B9A;
+}
+
+nav.breadcrumb li+li::before {
+    border-right: 0.1em solid currentcolor;
+    content: "";
+    display: inline-block;
+    height: 0.8em;
+    margin: 0 0.25em;
+    transform: rotate(15deg);
+}
+
+nav.breadcrumb ol {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+p {
+    line-height: 1.67em;
+}
+
+section.portfolio-copy div.tags {
+    display: flex;
+    grid-column: span 4;
+    justify-content: flex-start;
+}
+
+section.portfolio-copy div.tags span.chip+span.chip {
+    margin-left: 16px;
+}
+
+select {
+    padding: 0 24px 0;
+    width: 100%;
+}
+
+span.chip {
+    bottom: 0;
+    display: inline-block;
+    letter-spacing: 0;
+    font-weight: bold;
+    line-height: 1.225em;
+    padding: 16px;
+    text-transform: none;
+}
+
+
+/* Dark Mode */
+
+body.dark {
+    background-color: rgba(0, 0, 0, 0.92);
+    color: #ffffff;
+}
+
+body.dark a {
+    border-bottom: 2px solid #B5B5E5;
+    color: #B5B5E5;
+}
+
+body.dark a:hover:not(a.anchor-button) {
+    background: #B5B5E5;
+    color: rgba(0, 0, 0, 0.92);
+}
+
+body.dark a.anchor-button,
+body.dark button,
+body.dark select {
+    border: 5px solid transparent;
+    color: #ffffff;
+}
+
+body.dark a.anchor-button:hover,
+body.dark a.anchor-button:focus {
+    border: 5px solid #ffffff;
+}
+
+body.dark button,
+body.dark select {
+    background-color: rgba(0, 0, 0, 0.92);
+    border: 5px solid #ffffff;
+}
+
+body.dark button:focus,
+body.dark select:focus,
+body.dark button:hover,
+body.dark select:hover {
+    background: #ffffff;
+    color: rgba(0, 0, 0, 0.92);
+}
+
+body.dark div.settings button svg,
+body.dark div.settings button svg {
+    fill: #ffffff;
+}
+
+body.dark div.settings button:focus svg,
+body.dark div.settings button:hover svg {
+    fill: rgba(0, 0, 0, 0.92);
+}
+
+body.dark main .grid aside ul.tag-list li {
+    background: #ffffff;
+    color: rgba(0, 0, 0, 0.92);
+}
+
+body.dark nav.breadcrumb [aria-current="page"] {
+    color: #929292;
+}
+
+body.dark nav.breadcrumb li a.anchor-button:hover,
+body.dark nav.breadcrumb li a.anchor-button:focus {
+    border: none;
+    border-bottom: 5px solid #FEEE52;
+}
+
+body.dark span.chip {
+    color: rgba(0, 0, 0, 0.92);
+}
+
+body.dark span.chip.graphic-design {
+    color: #ffffff;
+}
+
+@media only screen and (min-width: 400px) {
+    footer ul li {
+        float: left;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        font-size: 1em;
+    }
+    body.large {
+        font-size: 1.25em;
+        hyphens: auto;
+    }
+    .grid {
+        grid-column-gap: 16px;
+        grid-template-columns: repeat(8, 1fr);
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    .grid.cards {
+        grid-row-gap: 16px;
+        margin: 16px 0;
+    }
+
+    a.anchor-button.logo {
+        text-align: left;
+    }
+
+    div.flex-container {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    div.settings {
+        text-align: right;
+    }
+
+    fieldset {
+        width: auto;
+    }
+
+    footer {
+        grid-column: 1 / span 8;
+        padding: 0 0 40px;
+    }
+
+    h1 {
+        font-size: 5em;
+    }
+
+    header {
+        grid-column: 1 / span 8;
+    }
+
+    html {
+        font-size: 16px;
+    }
+
+    main {
+        grid-column: 1 / span 8;
+    }
+
+    main .grid .body-text {
+        grid-column: 1 / span 9;
+    }
+
+    main .grid aside {
+        grid-column: 1 / span 9;
+    }
+
+    main .grid.portfolio-copy h1,
+    main .grid.portfolio-copy h2 {
+        grid-column: 1 / span 8;
+    }
+
+    main img.feature {
+        grid-column: span 8;
+    }
+
+    nav.breadcrumb {
+        grid-column: span 8;
+        margin: 2em 0 calc(2em - 24px);
+    }
+
+    section.portfolio-copy div.tags {
+        grid-column: span 8;
+        justify-content: flex-end;
+    }
+
+    select {
+        width: 280px;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    a.anchor-button.logo {
+        margin: 24px 0;
+    }
+
+    .grid {
+        grid-column-gap: 24px;
+        grid-template-columns: repeat(8, 1fr);
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    .grid.cards {
+        grid-row-gap: 24px;
+        margin: 24px 0;
+    }
+
+    .grid.portfolio-copy .body-text h2,
+    .grid.portfolio-copy aside h2 {
+        margin-top: calc(1em - 24px);
+    }
+
+    main .grid {
+        grid-row-gap: 24px;
+    }
+
+    main .grid aside {
+        grid-column: 5 / span 4;
+    }
+
+    main .grid div.body-text {
+        grid-column: 1 / span 4;
+    }
+
+    select {
+        width: 320px;
+    }
+}
+
+@media only screen and (min-width: 840px) {
+    .grid {
+        grid-column-gap: 24px;
+        grid-template-columns: repeat(12, 1fr);
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    .grid.cards {
+        grid-row-gap: 24px;
+        margin: 24px 0;
+    }
+
+    footer {
+        grid-column: 1 / span 12;
+    }
+
+    header {
+        grid-column: 1 / span 12;
+    }
+
+    main {
+        grid-column: 1 / span 12;
+    }
+
+    main .grid aside {
+        grid-column: 8 / span 5;
+    }
+
+    main .grid div.body-text {
+        grid-column: 1 / span 7;
+    }
+
+    main .grid.portfolio-copy h1,
+    main .grid.portfolio-copy h2 {
+        grid-column: 1 / span 12;
+    }
+
+    main img.feature {
+        grid-column: span 12;
+    }
+
+    main img.feature-md {
+        grid-column: span 6;
+    }
+
+    nav.breadcrumb {
+        grid-column: span 12;
+    }
+
+    section.portfolio-copy div.tags {
+        grid-column: span 12;
+    }
+}
