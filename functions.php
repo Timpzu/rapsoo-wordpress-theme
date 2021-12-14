@@ -1,7 +1,8 @@
 <?php
   function getStyle() {
-    wp_enqueue_style('normalize', get_template_directory_uri() . 'css/normalize.min.css');
-    wp_enqueue_style('all', get_template_directory_uri() . 'css/all.min.css');
+    wp_enqueue_style('normalize', get_template_directory_uri() . '/css/normalize.min.css');
+    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap', false );
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css', false);
     wp_enqueue_style('style', get_stylesheet_uri());
   }
   add_action('wp_enqueue_scripts', 'getStyle' );
@@ -63,7 +64,7 @@
   // Customization options
   function rapsoo_customize_register( $wp_customize ) {
 
-    // Custom header
+    // Header customization
     $wp_customize->add_section('rapsoo_header_section', array(
       'title' => 'Header',
       'priority' => 30,
@@ -77,6 +78,94 @@
       'settings' => 'rapsoo_headline',
       'type' => 'text',
     )));
+
+    // Posts customization
+    $wp_customize->add_section('rapsoo_posts_section', array(
+      'title' => 'Posts',
+      'priority' => 31,
+    ));
+    $wp_customize->add_setting('rapsoo_posts_heading', array(
+      'default' => 'My works',
+    ));
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_posts_heading_control', array(
+      'label' => 'Posts heading',
+      'section' => 'rapsoo_posts_section',
+      'settings' => 'rapsoo_posts_heading',
+      'type' => 'text',
+    )));
+
+    // Footer customization
+    $wp_customize->add_section('rapsoo_footer_section', array(
+      'title' => 'Footer',
+      'priority' => 32,
+    ));
+    $wp_customize->add_setting('rapsoo_footer_heading', array(
+      'default' => 'Contact me',
+    ));
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_footer_heading_control', array(
+      'label' => 'Footer heading',
+      'section' => 'rapsoo_footer_section',
+      'settings' => 'rapsoo_footer_heading',
+      'type' => 'text',
+    )));
+
+    // Email address
+    $wp_customize->add_setting('rapsoo_email_address', array(
+      'default' => '',
+    ));
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_email_address_control', array(
+      'label' => 'Your Email address',
+      'description' => 'Provide your email address (format: name@domain.com)',
+      'section' => 'rapsoo_footer_section',
+      'settings' => 'rapsoo_email_address',
+      'type' => 'text',
+    )));
+
+    // Social media links
+    $wp_customize->add_setting('rapsoo_instagram_link', array(
+      'default' => '',
+    ));
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_instagram_link_control', array(
+      'label' => 'Your Instagram',
+      'description' => 'Provide URL for your Instgram account',
+      'section' => 'rapsoo_footer_section',
+      'settings' => 'rapsoo_instagram_link',
+      'type' => 'text',
+    )));
+
+    $wp_customize->add_setting('rapsoo_linkedin_link', array(
+      'default' => '',
+    ));
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_linkedin_link_control', array(
+      'label' => 'Your LinkedIn',
+      'description' => 'Provide URL for your LinkedIn account',
+      'section' => 'rapsoo_footer_section',
+      'settings' => 'rapsoo_linkedin_link',
+      'type' => 'text',
+    )));
+
+    $wp_customize->add_setting('rapsoo_github_link', array(
+      'default' => '',
+    ));
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_github_link_control', array(
+      'label' => 'Your Github',
+      'description' => 'Provide URL for your Github account',
+      'section' => 'rapsoo_footer_section',
+      'settings' => 'rapsoo_github_link',
+      'type' => 'text',
+    )));
+
+    $wp_customize->add_setting('rapsoo_instagram_link', array(
+      'default' => '',
+    ));
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_instagram_link_control', array(
+      'label' => 'Your Instagram',
+      'description' => 'Provide URL for your Instgram account',
+      'section' => 'rapsoo_footer_section',
+      'settings' => 'rapsoo_instagram_link',
+      'type' => 'text',
+    )));
+    
   }
   add_action('customize_register', 'rapsoo_customize_register');
 ?>

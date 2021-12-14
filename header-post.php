@@ -4,7 +4,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title><?php bloginfo('name') ?></title>
+    <title><?php wp_title('|', true, 'right'); bloginfo('name') ?></title>
     <meta name="author" content="Timo Lehtonen">
     <meta name="description" content="description here">
     <meta name="keywords" content="Etiam vitae purus dignissim">
@@ -45,4 +45,10 @@
                     </button>
                 </div>
             </div>
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <ol>
+                    <li><a class="anchor-button" href="index.html">Front page</a></li>
+                    <li><a class="anchor-button" href="#" aria-current="page">Post</a></li>
+                </ol>
+            </nav>
         </header>

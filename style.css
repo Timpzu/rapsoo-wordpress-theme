@@ -191,7 +191,7 @@ a.anchor-button:focus {
 
 body {
     background-color: #ffffff;
-    font-family: atkinson, sans-serif;
+    font-family: 'Archivo', sans-serif;
     font-size: 1.25em;
     margin: 0;
     -moz-transition: all 0.4s ease-out;

@@ -19,11 +19,11 @@
         <?php endwhile; endif; ?>
     </section>
     <section aria-labelledby="works">
-        <h2 id="works">My works</h2>
+        <h2 id="works"><?php echo get_theme_mod('rapsoo_posts_heading'); ?></h2>
         <div class="filters">
             <fieldset>
                 <legend class="sr-only">portfolio filters</legend>
-                <label for="categories">Filter categories:</label>
+                <label for="categories">Filter by categories:</label>
                 <select name="categories" id="categories">
                     <option value="" selected disabled>Category</option>
                     <!-- <option value="graphic-design">Graphic design</option> -->
