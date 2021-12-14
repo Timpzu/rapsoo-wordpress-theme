@@ -69,7 +69,7 @@
       'priority' => 30,
     ));
     $wp_customize->add_setting('rapsoo_headline', array(
-      'default' => 'Quisque sit amet auctor leo, quis dapibus libero.',
+      'default' => 'I am John Doe, a Photo Model specializing in WordPress mockup sites',
     ));
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_headline_control', array(
       'label' => 'Headline',

@@ -51,6 +51,7 @@
                         <?php $category = get_the_category();?>
 
                         <a class="anchor-button card cat-<?php echo $category[0]->term_id ?>" href="<?php the_permalink() ?>">
+                            <span class="ratio"></span>
                             <?php if ( has_post_thumbnail()) : ?>
                                 <?php  the_post_thumbnail('full'); ?>
                             <?php endif; ?>

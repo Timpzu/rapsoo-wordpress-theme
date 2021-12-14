@@ -85,11 +85,45 @@ a.anchor-button {
     text-decoration: none;
 }
 
+a.site-title,
+body.dark a.site-title {
+    border: 5px solid transparent;
+    color: rgba(0, 0, 0, 0.92);
+    font-size: 1.25em;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    margin: 24px 0;
+    padding: 12px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+body.dark a.site-title {
+    background: none;
+    border: rgba(255, 255, 255);
+    color: rgba(255, 255, 255);
+}
+
+a.site-title:focus,
+a.site-title:hover {
+    background: none;
+    border: 5px solid rgba(0, 0, 0, 0.92);
+}
+
 a.anchor-button.card {
+    align-items: center;
+    display: flex;
     grid-column: span 4;
+    justify-content: center;
     line-height: 0;
+    overflow: hidden;
     padding: 0;
     position: relative;
+}
+
+a.anchor-button.card span.ratio {
+    padding-top: 100%;
+    width: 100%;
 }
 
 a.anchor-button.card div.overlay {
@@ -114,6 +148,9 @@ a.anchor-button.card div.overlay span {
 
 a.anchor-button.card img {
     margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
 }
 
 a.anchor-button.card:hover div.overlay,
@@ -474,13 +511,14 @@ body.dark a {
     color: #B5B5E5;
 }
 
-body.dark a:hover:not(a.anchor-button):not(a.custom-logo-link) {
+body.dark a:hover:not(a.anchor-button):not(a.custom-logo-link):not(a.site-title) {
     background: #B5B5E5;
     color: rgba(0, 0, 0, 0.92);
 }
 
 body.dark a.anchor-button,
 body.dark a.custom-logo-link,
+body.dark a.site-title,
 body.dark button,
 body.dark select {
     border: 5px solid transparent;
@@ -489,6 +527,8 @@ body.dark select {
 
 body.dark a.custom-logo-link:hover,
 body.dark a.custom-logo-link:focus,
+body.dark a.site-title:hover,
+body.dark a.site-title:focus,
 body.dark a.anchor-button:hover,
 body.dark a.anchor-button:focus {
     border: 5px solid #ffffff;

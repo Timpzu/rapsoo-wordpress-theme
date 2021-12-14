@@ -21,7 +21,7 @@
                     the_custom_logo();
                 } else {
                     $site_title = get_bloginfo( 'name' );
-                    echo $site_title; 
+                    echo '<a href="' . home_url() . '" class="site-title">' . $site_title . '</a>'; 
                 } ?>
                 <div class="settings">
                     <button aria-label="Format size" id="format_size">
