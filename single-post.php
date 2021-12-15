@@ -12,7 +12,8 @@
                 <?php the_content() ?>
             </div>
             <aside class="side-text">
-                <p>Aside</p>
+                <h3>Additional information</h3>
+                <?php echo apply_filters( 'the_content', carbon_get_the_post_meta( 'crb_details' ) ); ?>
             </aside>
         <?php endwhile; endif; ?>
         </section>

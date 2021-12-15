@@ -28,6 +28,47 @@
     define('THEME_IMG_PATH', get_stylesheet_directory_uri() . '/img');
   };
 
+  // Carbon fields
+  use Carbon_Fields\Container;
+  use Carbon_Fields\Field;
+
+  add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
+    function crb_attach_theme_options() {
+      Container::make( 'post_meta', 'Details sidebar' )
+      ->where( 'post_type', '=', 'post' )
+      ->add_fields( array(
+          Field::make('rich_text', 'crb_details', 'Edit details sidebar')
+      ));
+  }
+  add_action( 'carbon_fields_register_fields', 'crb_attach_post_meta' );
+  function crb_attach_post_meta() {
+    Container::make( 'post_meta', 'Experience' )
+        ->where( 'post_type', '=', 'page' ) // only show our new fields on pages
+        ->where( 'post_id', '=', get_option( 'page_on_front' ) )
+        ->add_fields( array(
+            Field::make( 'complex', 'crb_occupations', 'Edit experience' )
+              ->set_layout( 'grid' )
+              ->add_fields( array(
+                Field::make( 'text', 'occupation_title', 'Title' ),
+                Field::make( 'text', 'occupation_company', 'Company name' ),
+                Field::make( 'text', 'occupation_date', 'Date' ),
+              ) ),
+        ) );
+    Container::make( 'post_meta', 'Education' )
+    ->where( 'post_type', '=', 'page' ) // only show our new fields on pages
+    ->where( 'post_id', '=', get_option( 'page_on_front' ) )
+    ->add_fields( array(
+      Field::make( 'complex', 'crb_educations', 'Edit education' )
+        ->set_layout( 'grid' )
+        ->add_fields( array(
+          Field::make( 'text', 'education_field_of_study', 'Field of study' ),
+          Field::make( 'text', 'education_degree', 'Degree' ),
+          Field::make( 'text', 'education_school', 'School' ),
+          Field::make( 'text', 'education_date', 'Date' ),
+        ) ),
+    ) );
+}
+
   // Custom category color
   add_action('category_add_form_fields', 'my_category_fields', 10, 2);
   add_action('category_edit_form_fields', 'my_category_fields', 10, 2);
@@ -36,13 +77,11 @@
           if($cat_color == '') $cat_color = '#000000'; // Default black color
 
   ?>
-  <tr class="form-field">
-          <th valign="top" scope="row"><label for="cat_color"><?php _e('Color code'); ?></label></th>
-          <td>
-              <input type="color" size="40" value="<?php echo esc_attr($cat_color); ?>" id="cat_color" name="cat_color"><br/>
-              <span class="description"><?php _e('Please select a color'); ?></span>
-          </td>
-      </tr>
+  <div class="form-field">
+    <label for="cat_color"><?php _e('Category color'); ?></label>
+    <input type="color" size="40" value="<?php echo esc_attr($cat_color); ?>" id="cat_color" name="cat_color"><br/>
+    <p class="description"><?php _e('Please select a color for the category.'); ?></p>
+  </div>
   <?php
   }
 
@@ -56,6 +95,11 @@
 
   update_term_meta($term_id, 'cat_color', sanitize_text_field($_POST['cat_color']));
 
+  }
+
+  // Get current URL
+  function wp_get_current_url() {
+    return home_url( $_SERVER['REQUEST_URI'] );
   }
 
   // Custom logo

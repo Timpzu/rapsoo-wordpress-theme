@@ -13,7 +13,34 @@
                 <?php the_content() ?>
             </div>
             <aside>
-                <p>Aside</p>
+                <h3>My experience</h3>
+                <h4>
+                    <i class="far fa-building" aria-hidden="true"></i> Occupation
+                </h4>
+                <?php
+                    $occupations = carbon_get_the_post_meta( 'crb_occupations' );
+                    echo '<ul class="no-padding-list">';
+                    foreach ( $occupations as $occupation ) {
+                        echo '<li><strong>' . $occupation['occupation_title'] . '</strong></li>';
+                        echo '<li><span>' . $occupation['occupation_company'] . '</span></li>';
+                        echo '<li><span>' . $occupation['occupation_date'] . '</span></li>';
+                    }
+                    echo '</ul>';
+                ?>
+                <h4>
+                    <i class="fas fa-graduation-cap" aria-hidden="true"></i> Education
+                </h4>
+                <?php
+                    $educations = carbon_get_the_post_meta( 'crb_educations' );
+                    echo '<ul class="no-padding-list">';
+                    foreach ( $educations as $education ) {
+                        echo '<li><strong>' . $education['education_field_of_study'] . '</strong></li>';
+                        echo '<li><span><i>' . $education['education_degree'] . '</i></span></li>';
+                        echo '<li><span>' . $education['education_school'] . '</span></li>';
+                        echo '<li><span>' . $education['education_date'] . '</span></li>';
+                    }
+                    echo '</ul>';
+                ?>
             </aside>
         </div>
         <?php endwhile; endif; ?>
@@ -26,7 +53,6 @@
                 <label for="categories">Filter by categories:</label>
                 <select name="categories" id="categories">
                     <option value="" selected disabled>Category</option>
-                    <!-- <option value="graphic-design">Graphic design</option> -->
                     <?php
                         foreach ( get_categories() as $category ) :
                             ?><option value="cat-<?php echo $category->term_id; ?>"><?php echo $category->name; ?></option> <?php
@@ -56,9 +82,7 @@
                                 <?php  the_post_thumbnail('full'); ?>
                             <?php endif; ?>
                             <?php $color = get_term_meta($category[0]->term_id, 'cat_color', true); ?>
-                            <span class="chip"
-                                style="background: <?php echo $color ; ?>"><?php echo $category[0]->cat_name; ?></span>
-
+                            <span class="chip" style="background: <?php echo $color ; ?>"><?php echo $category[0]->cat_name; ?></span>
                             <div class="overlay"><span aria-hidden="true"><?php the_title(); ?></span></div>
                         </a>
             <?php   }

@@ -47,8 +47,8 @@
             </div>
             <nav aria-label="Breadcrumb" class="breadcrumb">
                 <ol>
-                    <li><a class="anchor-button" href="index.html">Front page</a></li>
-                    <li><a class="anchor-button" href="#" aria-current="page">Post</a></li>
+                    <li><a class="anchor-button" href="<?php echo home_url() ?>">Front page</a></li>
+                    <li><a class="anchor-button" href="<?php echo wp_get_current_url() ?>" aria-current="page"><?php the_title(); ?></a></li>
                 </ol>
             </nav>
         </header>
