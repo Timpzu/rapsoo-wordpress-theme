@@ -7,37 +7,53 @@
         <?php endif; ?>
         <div class="grid about-copy">
             <div class="body-text">
-                <?php if ( has_post_thumbnail()) : ?>
-                <?php  the_post_thumbnail('full'); ?>
-                <?php endif; ?>
+                <figure>
+                    <?php if ( has_post_thumbnail()) : ?>
+                        <?php  the_post_thumbnail('full'); ?>
+                       <figcaption><?php  the_post_thumbnail_caption() ?></figcaption>
+                    <?php endif; ?>
+                </figure>
+                
                 <?php the_content() ?>
             </div>
             <aside>
-                <h3>My experience</h3>
-                <h4>
-                    <i class="far fa-building" aria-hidden="true"></i> Occupation
-                </h4>
+                <h3><?php echo get_theme_mod('rapsoo_sidebar_heading'); ?></h3>
+                <?php echo apply_filters( 'the_content', carbon_get_the_post_meta( 'crb_sidebar_content' ) ); ?>
                 <?php
                     $occupations = carbon_get_the_post_meta( 'crb_occupations' );
-                    echo '<ul class="no-padding-list">';
-                    foreach ( $occupations as $occupation ) {
-                        echo '<li><strong>' . $occupation['occupation_title'] . '</strong></li>';
-                        echo '<li><span>' . $occupation['occupation_company'] . '</span></li>';
-                        echo '<li><span>' . $occupation['occupation_date'] . '</span></li>';
+                    if ( !empty($occupations) ) {
+                        echo '<h4><i class="far fa-building" aria-hidden="true"></i> Occupation</h4>';
                     }
-                    echo '</ul>';
+                    foreach ( $occupations as $occupation ) {
+                        echo '<ul class="no-padding-list">';
+                            echo '<li><strong>' . $occupation['occupation_title'] . '</strong></li>';
+                            echo '<li><span>' . $occupation['occupation_company'] . '</span></li>';
+                            echo '<li><span>' . $occupation['occupation_date'] . '</span></li>';
+                        echo '</ul>';
+                    }
                 ?>
-                <h4>
-                    <i class="fas fa-graduation-cap" aria-hidden="true"></i> Education
-                </h4>
                 <?php
                     $educations = carbon_get_the_post_meta( 'crb_educations' );
-                    echo '<ul class="no-padding-list">';
+                    if ( !empty($educations) ) {
+                        echo '<h4><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h4>';
+                    }
                     foreach ( $educations as $education ) {
-                        echo '<li><strong>' . $education['education_field_of_study'] . '</strong></li>';
-                        echo '<li><span><i>' . $education['education_degree'] . '</i></span></li>';
-                        echo '<li><span>' . $education['education_school'] . '</span></li>';
-                        echo '<li><span>' . $education['education_date'] . '</span></li>';
+                        echo '<ul class="no-padding-list">';
+                            echo '<li><strong>' . $education['education_field_of_study'] . '</strong></li>';
+                            echo '<li><span><i>' . $education['education_degree'] . '</i></span></li>';
+                            echo '<li><span>' . $education['education_school'] . '</span></li>';
+                            echo '<li><span>' . $education['education_date'] . '</span></li>';
+                        echo '</ul>';
+                    }
+                ?>
+                <?php
+                    $skills = carbon_get_the_post_meta( 'crb_skills' );
+                    if ( !empty($skills) ) {
+                        echo '<h4>Skills</h4>';
+                    }
+                    echo '<ul class="tag-list">';
+                    foreach ( $skills as $skill ) {
+                        echo '<li>' . $skill['skill_tag'] . '</li>';
                     }
                     echo '</ul>';
                 ?>

@@ -32,18 +32,21 @@
   use Carbon_Fields\Container;
   use Carbon_Fields\Field;
 
-  add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
-    function crb_attach_theme_options() {
-      Container::make( 'post_meta', 'Details sidebar' )
+  add_action( 'carbon_fields_register_fields', 'crb_attach_post_meta' );
+  function crb_attach_post_meta() {
+    Container::make( 'post_meta', 'Details sidebar' )
       ->where( 'post_type', '=', 'post' )
       ->add_fields( array(
           Field::make('rich_text', 'crb_details', 'Edit details sidebar')
-      ));
-  }
-  add_action( 'carbon_fields_register_fields', 'crb_attach_post_meta' );
-  function crb_attach_post_meta() {
+    ));
+    Container::make( 'post_meta', 'Sidebar content' )
+      ->where( 'post_type', '=', 'page' )
+      ->where( 'post_id', '=', get_option( 'page_on_front' ) )
+      ->add_fields( array(
+          Field::make('rich_text', 'crb_sidebar_content', 'Write a sidebar synopsis')
+    ));
     Container::make( 'post_meta', 'Experience' )
-        ->where( 'post_type', '=', 'page' ) // only show our new fields on pages
+        ->where( 'post_type', '=', 'page' )
         ->where( 'post_id', '=', get_option( 'page_on_front' ) )
         ->add_fields( array(
             Field::make( 'complex', 'crb_occupations', 'Edit experience' )
@@ -53,9 +56,9 @@
                 Field::make( 'text', 'occupation_company', 'Company name' ),
                 Field::make( 'text', 'occupation_date', 'Date' ),
               ) ),
-        ) );
+    ) );
     Container::make( 'post_meta', 'Education' )
-    ->where( 'post_type', '=', 'page' ) // only show our new fields on pages
+    ->where( 'post_type', '=', 'page' )
     ->where( 'post_id', '=', get_option( 'page_on_front' ) )
     ->add_fields( array(
       Field::make( 'complex', 'crb_educations', 'Edit education' )
@@ -65,6 +68,16 @@
           Field::make( 'text', 'education_degree', 'Degree' ),
           Field::make( 'text', 'education_school', 'School' ),
           Field::make( 'text', 'education_date', 'Date' ),
+        ) ),
+    ) );
+    Container::make( 'post_meta', 'Skills' )
+    ->where( 'post_type', '=', 'page' )
+    ->where( 'post_id', '=', get_option( 'page_on_front' ) )
+    ->add_fields( array(
+      Field::make( 'complex', 'crb_skills', 'Edit skills' )
+        ->set_layout( 'tabbed-vertical' )
+        ->add_fields( array(
+          Field::make( 'text', 'skill_tag', 'Write new skill' ),
         ) ),
     ) );
 }
@@ -123,10 +136,25 @@
       'type' => 'text',
     )));
 
+    // Sidebar customization
+    $wp_customize->add_section('rapsoo_sidebar_section', array(
+      'title' => 'Sidebar',
+      'priority' => 31,
+    ));
+    $wp_customize->add_setting('rapsoo_sidebar_heading', array(
+      'default' => 'My experience',
+    ));
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'rapsoo_headline_control', array(
+      'label' => 'Sidebar heading',
+      'section' => 'rapsoo_sidebar_section',
+      'settings' => 'rapsoo_sidebar_heading',
+      'type' => 'text',
+    )));
+
     // Posts customization
     $wp_customize->add_section('rapsoo_posts_section', array(
       'title' => 'Posts',
-      'priority' => 31,
+      'priority' => 32,
     ));
     $wp_customize->add_setting('rapsoo_posts_heading', array(
       'default' => 'My works',
@@ -141,7 +169,7 @@
     // Footer customization
     $wp_customize->add_section('rapsoo_footer_section', array(
       'title' => 'Footer',
-      'priority' => 32,
+      'priority' => 33,
     ));
     $wp_customize->add_setting('rapsoo_footer_heading', array(
       'default' => 'Contact me',

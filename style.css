@@ -277,6 +277,17 @@ fieldset {
     width: 100%;
 }
 
+figure {
+    margin: 0;
+}
+
+figure figcaption {
+    color: #595959;
+    font-size: 0.875em;
+    line-height: 1.5;
+    margin: 8px 0 24px;
+}
+
 footer {
     grid-column: 1 / span 4;
     padding: 0 0 20px;
@@ -379,16 +390,8 @@ main .grid aside ul.tag-list li {
     float: left;
     font-weight: bold;
     margin-bottom: 8px;
-    padding: 8px;
-}
-
-main .grid aside ul.tag-list li~li,
-main .grid aside ul.tag-list li:first-child {
     margin-right: 8px;
-}
-
-main .grid aside ul.tag-list li:last-child {
-    margin-right: 0;
+    padding: 8px;
 }
 
 main .grid.about-copy,
@@ -410,7 +413,7 @@ main img {
     width: 100%;
 }
 
-main img.feature {
+main figure.feature {
     grid-column: span 4;
 }
 
@@ -665,7 +668,7 @@ body.dark span.chip.graphic-design {
         grid-column: 1 / span 8;
     }
 
-    main img.feature {
+    main figure.feature {
         grid-column: span 8;
     }
 
@@ -761,11 +764,11 @@ body.dark span.chip.graphic-design {
         grid-column: 1 / span 12;
     }
 
-    main img.feature {
+    main figure.feature {
         grid-column: span 12;
     }
 
-    main img.feature-md {
+    main figure.feature-md {
         grid-column: span 6;
     }
 
