@@ -1,6 +1,16 @@
 $(document).ready(function () {
+    let contrast = localStorage.getItem('contrast');
+    if (contrast !== '') {
+        $('body').addClass(contrast);
+    }
+
     $("#invert_colors").click(function () {
         $('body').toggleClass("dark");
+        if ($('body').hasClass('dark')) {
+            localStorage.setItem('contrast', 'dark');
+        } else {
+            localStorage.setItem('contrast', '');
+        }
     });
     $("#format_size").click(function () {
         $('body').toggleClass("large");

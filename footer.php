@@ -27,6 +27,10 @@
                 </li>
             <?php endif; ?>
         </ul>
+        <section class="footer-credits" aria-labelledby="credits">
+            <h3 id="credits" class="sr-only">WordPress theme credits</h3>
+            <p>Räpsöö WordPress Theme by <a href="https://lehtosentimo.fi"><span style="white-space: nowrap">Lehtosen Timo</span></a></p>
+        </section>
     </footer>
 </div>
 <?php wp_footer(); ?>
