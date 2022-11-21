@@ -22,7 +22,7 @@ h2,
     grid-column-gap: 16px;
     grid-template-columns: repeat(4, 1fr);
     margin: 0;
-    max-width: 960px;
+    max-width: 1024px;
     padding: 0 16px 0;
 }
 
@@ -191,7 +191,7 @@ a.anchor-button:focus {
 
 body {
     background-color: #ffffff;
-    font-family: atkinson, sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 1em;
     margin: 0;
     -moz-transition: font-size 0.4s ease-out;
@@ -308,7 +308,7 @@ footer ul {
 }
 
 footer section.footer-credits {
-    margin: 24px 0;
+    /* margin: 24px 0; */
     padding: 1px;
     text-align: center;
 }
@@ -324,6 +324,7 @@ h2,
 h3,
 h4,
 h5 {
+    font-family: 'Space Grotesk', sans-serif;
     line-height: 1.25em;
     margin: 0.75em 0 0.5em;
 }
